@@ -1,0 +1,10 @@
+.album {
+    text-align: center;
+}
+.thumb img {
+    width: 160px;
+    border-radius: 4px;
+}
+p {
+    font-weight: 700;
+}

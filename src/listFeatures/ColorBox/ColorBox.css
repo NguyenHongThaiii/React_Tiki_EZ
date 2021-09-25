@@ -1,0 +1,13 @@
+.Box-Color {
+    margin: auto 0;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+}

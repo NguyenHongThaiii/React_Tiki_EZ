@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="2000" height="2000" style="border: 1px solid #d3d3d3"></canvas>
+  </body>
+</html>
+
+<script>
+  let ctx = document.getElementById('canvas').getContext('2d');
+  
+  function Circle(x, y, r) {
+    this.x = x;
+    this.y = y;
+    this.r = r;
+  }
+  
+  const c1 = new Circle(400, 400, 300);
+  const c2 = new Circle(400, 700, 300);
+  
+  function Main(c1, c2) {
+    this.c1 = c1;
+    this.c2 = c2;
+    this.check = Math.sqrt(Math.pow(this.c1.x - this.c2.x, 2) + Math.pow(this.c1.y - this.c2.y, 2));
+
+    this.checkCircle = function () {
+      if (this.c1.r + this.c2.r == this.check) {
+        alert('Tiếp xúc');
+      } else if (this.c1.r + this.c2.r < this.check) {
+        alert('không tiếp xúc');
+      } else if (this.c1.r + this.c2.r > this.check) {
+        alert('giao nhau');
+      }
+    };
+  }
+  
+  const main = new Main(c1, c2);
+  main.checkCircle();
+
+  ctx.arc(c1.x, c1.y, c1.r, 0, 2 * Math.PI);
+  ctx.fillStyle = '#000';
+  ctx.stroke();
+
+  ctx.arc(c2.x, c2.y, c2.r, 0, 2 * Math.PI);
+  ctx.fillStyle = '#ccc';
+  ctx.stroke();
+</script>
